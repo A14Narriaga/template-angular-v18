@@ -1,0 +1,27 @@
+<label
+	[for]="label"
+	class="block mb-2 text-sm font-medium text-textCard">
+	{{ label }}
+</label>
+<div class="relative">
+	<div class="absolute inset-y-0 start-0 flex items-center ps-3.5">
+		<ng-content select="[iconPosition='start']" />
+	</div>
+	<input
+		[type]="type"
+		[id]="label"
+		class="bg-inputColor border border-borderColor text-inputTextColor text-sm rounded-lg focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary block w-full pe-10 ps-10 p-2.5"
+		[placeholder]="placeholder" />
+	<div class="absolute inset-y-0 end-0 flex items-center pe-3.5">
+		<ng-content select="[iconPosition='end']" />
+	</div>
+</div>
+
+<!-- <div class="flex items-center justify-between mt-1"> -->
+<!-- <p class="text-sm text-errorColor">
+		<span class="font-medium">Oh, snapp!</span> Some error message.
+	</p> -->
+<!-- <p class="font-light text-xs">
+		{{ atmInput.value.length }} / {{ maxlength }}
+	</p> -->
+<!-- </div> -->

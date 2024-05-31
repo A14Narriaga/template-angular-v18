@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+:root {
+  --card: 34, 31, 31;
+  --primary: 6, 182, 212;
+  --secondary: 59, 130, 246;
+  --text-primary: 255, 255, 255;
+  --text-card: 255, 255, 255;
+  --border: 75 85 99;
+  --input: 55 65 81;
+  --input-text: 255 255 255;
+  --input-icon: 156 163 175;
+  --error: 239 68 68;
+}
+
+.dark {
+  --card: 34, 31, 31;
+  --primary: 6, 182, 212;
+  --secondary: 59, 130, 246;
+  --text-primary: 255, 255, 255;
+  --text-card: 255, 255, 255;
+  --border: 75 85 99;
+  --input: 55 65 81;
+  --input-text: 255 255 255;
+  --input-icon: 156 163 175;
+  --error: 239 68 68;
+}
+
+.light {
+  --card: 255, 255, 255;
+  --primary: 6, 182, 212;
+  --secondary: 59, 130, 246;
+  --text-primary: 255, 255, 255;
+  --text-card: 0, 0, 0;
+  --border: 209 213 219;
+  --input: 249 250 251;
+  --input-text: 17 24 39;
+  --input-icon: 107 114 128;
+  --error: 220 38 38;
+}
+

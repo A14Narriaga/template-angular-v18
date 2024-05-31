@@ -1,0 +1,33 @@
+<ol class="flex items-center">
+	@for (step of steps; track $index; let last = $last) {
+		<li class="relative w-full mb-6">
+			<div class="flex items-center">
+				<div
+					class="z-10 flex items-center justify-center w-6 h-6 rounded-full ring-0 ring-white sm:ring-8 dark:ring-gray-900 shrink-0"
+					[ngClass]="{
+						'bg-blue-600 dark:bg-blue-900': !last,
+						'bg-gray-200 dark:bg-gray-700': last
+					}">
+					@if (step.done) {
+						<icon-tick class="w-2.5 h-2.5 text-gray-900 dark:text-white" />
+					} @else {
+						<span
+							class="flex w-3 h-3 rounded-full"
+							[ngClass]="{
+								'bg-blue-600': !last,
+								'bg-gray-900 dark:bg-gray-300': last
+							}"></span>
+					}
+				</div>
+				@if (!last) {
+					<div class="flex w-full bg-gray-200 h-0.5 dark:bg-gray-700"></div>
+				}
+			</div>
+			<div class="mt-3">
+				<h3 class="font-medium text-gray-900 dark:text-white">
+					{{ step.name }}
+				</h3>
+			</div>
+		</li>
+	}
+</ol>

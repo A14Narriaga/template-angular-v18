@@ -1,0 +1,38 @@
+{
+	"material-icon-theme.activeIconPack": "angular",
+	"eslint.enable": true,
+	"editor.formatOnSave": true,
+	"editor.formatOnPaste": true,
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"editor.stickyScroll.enabled": true,
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": "always",
+		"source.fixAll.format": "always"
+	},
+	"htmlhint.options": { "doctype-first": false },
+	"[dockerfile]": {
+		"editor.defaultFormatter": "ms-azuretools.vscode-docker"
+	},
+	"[dockercompose]": {
+		"editor.defaultFormatter": "ms-azuretools.vscode-docker"
+	},
+	"search.exclude": {
+		"**/.husky/_": true,
+		"**/.vscode": true,
+		"**/dist": true,
+		"**/public": true,
+		"**/node_modules": true,
+		"**/yarn.lock": true
+	},
+	"[typescript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"svg.preview.background": "editor",
+	"typescript.tsdk": "node_modules/typescript/lib",
+	"[javascript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	}
+	// "files.exclude": {
+	//   "**/node_modules": true
+	// }
+}

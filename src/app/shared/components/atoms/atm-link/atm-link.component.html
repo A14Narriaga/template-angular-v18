@@ -1,0 +1,14 @@
+<div
+	class="flex justify-center flex-col gap-1 leading-none text-textCard/60"
+	[ngClass]="{
+		'items-start': align === 'start',
+		'items-center': align === 'center',
+		'items-end': align === 'end'
+	}">
+	<p>{{ label }}</p>
+	<a
+		[routerLink]="link"
+		class="hover:underline hover:text-primary">
+		<ng-content></ng-content>
+	</a>
+</div>

@@ -1,0 +1,7 @@
+.angular/
+.github/
+.husky/
+dist/
+docs/
+node_modules/
+tests/coverage/

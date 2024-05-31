@@ -1,0 +1,61 @@
+<form
+	autocomplete="off"
+	[formGroup]="formGroup"
+	(submit)="login()">
+	<p class="text-3xl font-bold text-center text-textCard mb-7">Sing In</p>
+	<section class="flex flex-col gap-5 mb-7">
+		<atm-input
+			type="email"
+			label="Email"
+			[required]="false"
+			placeholder="sigin@gmail.com"
+			[formGroupParent]="formGroup"
+			formControlNameParent="email"
+			errorMsg="Ingresa un email valido">
+			<icon-envelope
+				iconPosition="start"
+				class="w-4 h-4 text-inputIconColor" />
+		</atm-input>
+		<atm-input
+			[type]="showPassword ? 'text' : 'password'"
+			label="Contraseña"
+			[required]="false"
+			placeholder="••••••••"
+			[paste]="false"
+			[formGroupParent]="formGroup"
+			formControlNameParent="password"
+			errorMsg="Contraseña incorrecta">
+			<icon-key
+				iconPosition="start"
+				class="w-4 h-4 text-inputIconColor" />
+			@if (showPassword) {
+				<icon-hidde
+					iconPosition="end"
+					class="w-5 h-5 text-primary cursor-pointer"
+					(click)="this.showPassword = false" />
+			} @else {
+				<icon-show
+					iconPosition="end"
+					class="w-5 h-5 text-primary cursor-pointer"
+					(click)="this.showPassword = true" />
+			}
+		</atm-input>
+	</section>
+	<atm-button
+		label="Entrar"
+		[disabled]="!formGroup.invalid"
+		(click)="navigateTo('/dashboard')" />
+	<div class="flex flex-col gap-5 mt-4">
+		<atm-link
+			align="start"
+			link="/recovery"
+			>Forgot password?</atm-link
+		>
+		<atm-link
+			align="center"
+			link="/register"
+			label="¿No tienes cuenta?"
+			>Crea una aquí</atm-link
+		>
+	</div>
+</form>
