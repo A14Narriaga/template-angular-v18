@@ -1,0 +1,31 @@
+<atm-input
+	type="email"
+	label="Celular"
+	[required]="false"
+	placeholder="nombre"
+	formControlNameParent="email"
+	errorMsg="Ingresa un email valido">
+</atm-input>
+<atm-input
+	type="email"
+	label="Correo"
+	[required]="false"
+	placeholder="nombre"
+	formControlNameParent="email"
+	errorMsg="Ingresa un email valido">
+</atm-input>
+
+<atm-button
+	label="Verificar telefono"
+	(click)="handleOpen('phone')" />
+
+<atm-button
+	label="Verificar email"
+	(click)="handleOpen('email')" />
+
+<mol-verification-code
+	id="email"
+	source="a14n.arriaga@gmail.com" />
+<mol-verification-code
+	id="phone"
+	source="+525585175413" />

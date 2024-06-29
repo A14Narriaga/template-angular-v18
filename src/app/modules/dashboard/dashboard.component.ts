@@ -1,14 +1,17 @@
-import { Component } from "@angular/core"
+import { CommonModule } from "@angular/common"
+import { Component, computed, inject } from "@angular/core"
 
-import { ThemeService } from "@app/services"
+import { AuthService } from "@app/services"
 import { SharedModule } from "@app/shared"
 
 @Component({
 	selector: "app-dashboard",
 	standalone: true,
-	imports: [SharedModule],
+	imports: [CommonModule, SharedModule],
 	templateUrl: "./dashboard.component.html"
 })
 export class DashboardComponent {
-	constructor(public themeService: ThemeService) {}
+	#authService = inject(AuthService)
+
+	public user = computed(() => this.#authService.currentUser())
 }

@@ -1,1 +1,1 @@
-export * from "./storage.utility"
+export * from "./array.utility"

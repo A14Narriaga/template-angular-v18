@@ -1,12 +1,13 @@
-import { Component } from "@angular/core"
+import { Component, inject } from "@angular/core"
 import {
+	FormBuilder,
 	FormGroup,
 	ReactiveFormsModule,
-	UntypedFormBuilder,
 	Validators
 } from "@angular/forms"
 import { Router } from "@angular/router"
 
+import { AuthService } from "@app/services"
 import { SharedModule } from "@app/shared"
 
 @Component({
@@ -16,28 +17,23 @@ import { SharedModule } from "@app/shared"
 	templateUrl: "./login.component.html"
 })
 export class LoginComponent {
-	public showPassword = false
+	private formBuilder = inject(FormBuilder)
+	private authService = inject(AuthService)
+	private router = inject(Router)
+
 	public formGroup: FormGroup = this.formBuilder.group({
 		// email: [getLocalStorage("email", ""), Validators.required],
-		email: ["", Validators.required],
-		password: ["", [Validators.required]]
+		email: ["a14n.arriaga@gmail.com", [Validators.required, Validators.email]],
+		password: ["A14Narriaga", [Validators.required, Validators.minLength(8)]]
 	})
-
-	constructor(
-		private formBuilder: UntypedFormBuilder,
-		private router: Router
-	) {}
+	public showPassword = false
 
 	login() {
-		if (!this.formGroup.valid) {
-			this.formGroup.markAllAsTouched()
-			// console.log("LOGIN", this.formGroup.value)
-			return this.formGroup.value
-		}
-	}
-
-	navigateTo(url: string) {
-		// console.log("URL", url)
-		this.router.navigateByUrl(url)
+		if (this.formGroup.invalid) this.formGroup.markAllAsTouched()
+		const { email, password } = this.formGroup.value
+		this.authService.login(email, password).subscribe({
+			next: () => this.router.navigateByUrl("/dashboard"),
+			error: (error) => console.log(error)
+		})
 	}
 }

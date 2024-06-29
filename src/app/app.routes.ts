@@ -1,8 +1,11 @@
 import { Routes } from "@angular/router"
 
+import { isAuthenticatedGuard, isNotAuthenticatedGuard } from "./guards"
+
 export const routes: Routes = [
 	{
 		path: "",
+		canActivate: [isNotAuthenticatedGuard],
 		loadComponent: () =>
 			import("./modules/auth").then((co) => co.AuthComponent),
 		children: [
@@ -38,12 +41,15 @@ export const routes: Routes = [
 	{
 		path: "dashboard",
 		title: "Dashboard",
+		canActivate: [isAuthenticatedGuard],
 		loadComponent: () =>
 			import("./modules/dashboard").then((co) => co.DashboardComponent)
 	},
 	{
-		path: "",
-		redirectTo: "/",
-		pathMatch: "full"
+		path: "**",
+		loadComponent: () =>
+			import("./shared/pages/pag-not-found").then(
+				(co) => co.PagNotFoundComponent
+			)
 	}
 ]

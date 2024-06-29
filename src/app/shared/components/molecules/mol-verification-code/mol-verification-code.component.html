@@ -1,0 +1,28 @@
+<atm-modal
+	[id]="id"
+	[canClose]="false">
+	<header class="mb-8">
+		<h1 class="text-2xl font-bold mb-1 text-textCard">
+			{{ id | titlecase }} Verification
+		</h1>
+		<p class="text-[15px] text-textCardSecondary">
+			Enter the {{ numOfDigits }}-digit verification code that was sent to
+			<b>{{ source }}</b
+			>.
+		</p>
+	</header>
+	<form id="otp-form">
+		<atm-input-code [numOfDigits]="numOfDigits" />
+		<div class="max-w-[260px] mx-auto mt-4">
+			<atm-button label="Verify Account" />
+		</div>
+	</form>
+	<div class="text-sm text-textCardSecondary mt-4">
+		Didn't receive code?
+		<a
+			class="font-medium text-primary hover:text-indigo-600"
+			href="#0"
+			>Resend</a
+		>
+	</div>
+</atm-modal>

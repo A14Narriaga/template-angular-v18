@@ -43,8 +43,7 @@
 	</section>
 	<atm-button
 		label="Entrar"
-		[disabled]="!formGroup.invalid"
-		(click)="navigateTo('/dashboard')" />
+		[disabled]="formGroup.invalid" />
 	<div class="flex flex-col gap-5 mt-4">
 		<atm-link
 			align="start"

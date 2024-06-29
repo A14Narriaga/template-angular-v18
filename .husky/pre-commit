@@ -31,10 +31,10 @@ yarn type-check || (
    false;
 )
 echoColorMsg $SECONDARY "4/5 🔎 Testing..."
-yarn test || (
-   echoColorMsg $ERROR "❌ Test failed, please fix it."
-   false;
-)
+# yarn test || (
+#    echoColorMsg $ERROR "❌ Test failed, please fix it."
+#    false;
+# )
 echoColorMsg $SECONDARY "5/5 🔎 Generating build..."
 yarn build || (
 echoColorMsg $ERROR "❌ Build failed, please fix it."

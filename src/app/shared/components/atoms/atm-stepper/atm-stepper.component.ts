@@ -1,5 +1,7 @@
 import { CommonModule } from "@angular/common"
-import { Component } from "@angular/core"
+import { Component, Input } from "@angular/core"
+
+import { IStep } from "@app/interfaces"
 
 import { IconTickComponent } from "../../icons"
 
@@ -10,22 +12,5 @@ import { IconTickComponent } from "../../icons"
 	templateUrl: "./atm-stepper.component.html"
 })
 export class AtmStepperComponent {
-	steps = [
-		{
-			name: "Step 1",
-			done: true
-		},
-		{
-			name: "Step 2",
-			done: true
-		},
-		{
-			name: "Step 3",
-			done: false
-		},
-		{
-			name: "Step 4",
-			done: false
-		}
-	]
+	@Input() steps!: IStep[]
 }
